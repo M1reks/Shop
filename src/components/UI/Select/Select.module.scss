@@ -1,0 +1,28 @@
+.dropdown {
+  background-color: #fff;
+  width: 52px;
+}
+
+.dropdown__header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown__item_hidden {
+  display: none;
+}
+
+.dropdown__item_active {
+  display: block;
+  cursor: pointer;
+}
+
+
+
+.dropdown__item {
+  position: absolute;
+}
+
