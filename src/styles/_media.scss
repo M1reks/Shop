@@ -1,5 +1,11 @@
 @import "variables";
 
+@mixin desktop-l() {
+  @media (max-width: $DESKTOP-L) {
+    @content;
+  }
+}
+
 @mixin desktop() {
   @media (max-width: $DESKTOP) {
     @content;

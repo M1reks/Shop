@@ -1,0 +1,79 @@
+@import "../../../../styles/media";
+
+.header__user {
+  display: flex;
+  gap: 48px;
+  @include desktop {
+    gap: 32px;
+  }
+}
+
+.header__input {
+  display: inline-flex;
+  padding: 16px 32px;
+  border-radius: 15px;
+  background: #E6E9EB;
+  justify-content: space-between;
+  align-items: center;
+  @include desktop-l {
+    padding: 14px 24px;
+  }
+}
+
+.header__input_text {
+  width: 300px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  padding-right: 10px;
+  @include desktop-l {
+    width: 250px;
+  }
+  @include desktop {
+    width: 200px;
+  }
+}
+
+.header__input_button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  svg {
+    align-items: center;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.header__navigation {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  @include desktop {
+    gap: 16px;
+  }
+
+  div {
+    padding: 12px;
+    border-radius: 80px;
+    border: 1.5px solid #E7E7E7;
+    @include desktop {
+      padding: 0;
+      border: none;
+    }
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.header__lang {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

@@ -14,6 +14,7 @@ const Select = ({defaultValue, options}) => {
         setDefaultLabel(item.label)
         setSelectActive(item => !item)
         void i18n.changeLanguage(item.label.toLowerCase())
+        localStorage.setItem('lng', item.label)
     }
     const renderItems = (item) => {
         const newArr = item.filter(item => !item.label.includes(defaultLabel))
