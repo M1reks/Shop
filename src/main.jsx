@@ -1,12 +1,16 @@
-import React from 'react'
-import App from './App.jsx'
-import './styles/index.scss'
-import {BrowserRouter} from "react-router-dom";
-import {createRoot} from "react-dom/client";
-import './i18n'
+import React from "react";
 
-createRoot(document.getElementById('root')).render(
-      <BrowserRouter>
-          <App />
-      </BrowserRouter>
-)
+import "./styles/index.scss";
+
+import { BrowserRouter } from "react-router-dom";
+import { createRoot } from "react-dom/client";
+
+import "./i18n";
+
+import App from "./App.jsx";
+
+createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+);

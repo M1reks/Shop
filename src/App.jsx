@@ -1,13 +1,13 @@
-import React from 'react'
-import {Route, Routes} from "react-router-dom";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+
 import Header from "./components/Header/Header.jsx";
 function App() {
-
-    return (
-        <div className="App">
-            <Header/>
-        </div>
-    );
+  return (
+    <div className="App">
+      <Header />
+    </div>
+  );
 }
 
 export default App;

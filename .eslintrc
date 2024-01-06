@@ -1,0 +1,63 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "es2020": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:react-hooks/recommended",
+        "prettier"
+    ],
+    "ignorePatterns": [
+        "dist",
+        ".eslintrc.cjs"
+    ],
+    "parserOptions": { "ecmaVersion": "latest", "sourceType": "module" },
+    "settings": { "react": { "version": "18.2" } },
+    "plugins": [
+        "react-refresh",
+        "prettier",
+        "import"
+    ],
+    "rules": {
+        "no-unused-vars": "warn",
+        "no-console": "warn",
+        "prefer-const": "warn",
+        "quotes": "warn",
+        "jsx-quotes": ["warn", "prefer-double"],
+        "comma-dangle": ["error", "always-multiline"],
+        "semi" : ["warn", "always"],
+        "react-refresh/only-export-components": [
+            "warn",
+            { "allowConstantExport": true }
+        ],
+        "import/order": [
+            "error",
+            {
+                "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+                "newlines-between": "always-and-inside-groups"
+            }
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "arrowParens": "avoid",
+                "bracketSpacing": true,
+                "endOfLine": "auto",
+                "printWidth": 140,
+                "proseWrap": "preserve",
+                "quoteProps": "as-needed",
+                "semi": true,
+                "singleQuote": false,
+                "tabWidth": 2,
+                "trailingComma": "all",
+                "useTabs": false
+            }
+        ]
+    }
+}
+
+
