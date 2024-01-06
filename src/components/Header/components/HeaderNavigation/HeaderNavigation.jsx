@@ -8,7 +8,7 @@ import Vector from "../../../../assets/Vector 5.svg?react";
 
 import styles from "./HeaderNavigation.module.scss";
 
-const HeaderPersone = () => {
+const HeaderPerson = () => {
   const { t, i18n } = useTranslation();
   Object.keys(translations).forEach(lng => {
     i18n.addResourceBundle(lng, "header", translations[lng]);
@@ -23,14 +23,14 @@ const HeaderPersone = () => {
       <div className={styles.header__search_category}>
         <p>{t("header:main")}</p>
         <div className={styles.header__search_categoryitem}>
-          <p>{t("header:main")}</p>
+          <p>{t("header:category")}</p>
           <Vector />
         </div>
-        <p>{t("header:main")}</p>
-        <p>{t("header:main")}</p>
+        <p>{t("header:сontacts")}</p>
+        <p>{t("header:сallphone")}</p>
       </div>
     </div>
   );
 };
 
-export default HeaderPersone;
+export default HeaderPerson;
