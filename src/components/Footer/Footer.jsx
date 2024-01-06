@@ -9,7 +9,7 @@ const Footer = () => {
         <p className={style.text}>Copyright © 2024 «Name store» rights reserved</p>
       </div>
     </div>
-  )
+  );
 };
 
 export default Footer;
