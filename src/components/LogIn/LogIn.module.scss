@@ -1,0 +1,21 @@
+.LogIn {
+  display: flex;
+  margin-bottom: 64px;
+  background-color: #FFF;
+  border-radius: 24px;
+}
+
+.LogIn__form {
+  padding: 165px 64px;
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.LogIn__header {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
