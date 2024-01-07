@@ -32,7 +32,7 @@ const LogIn = () => {
   return (
     <div className="container">
       <div className={Styles.LogIn}>
-        <Citi />
+        <Citi className={Styles.LogIn__image} />
         <div className={Styles.LogIn__form}>
           <h1 className={Styles.LogIn__header}>Авторизація</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
