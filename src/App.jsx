@@ -1,14 +1,24 @@
-import React from "react";
+import React, { Suspense } from "react";
+
+import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import LogInPage from "./pages/LogInPage/LogInPage.jsx";
+
+import { RoutesData } from "./app/RoutesData.js";
+
 function App() {
   return (
     <div className="App">
-      <Header />
-      <LogInPage />
-      <Footer />
+      <Suspense fallback={<div>Loading</div>}>
+        <Header />
+        <Routes>
+          {RoutesData.map(route => (
+            <Route path={route.path} key={route.path} element={<route.element />} />
+          ))}
+        </Routes>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

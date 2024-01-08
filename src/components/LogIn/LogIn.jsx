@@ -4,8 +4,6 @@ import { useForm } from "react-hook-form";
 
 import Citi from "../../assets/Rectangle 9.svg?react";
 
-import Input from "../UI/Input/Input.jsx";
-
 import Styles from "./LogIn.module.scss";
 
 const LogIn = () => {
