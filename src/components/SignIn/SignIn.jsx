@@ -23,6 +23,11 @@ const SignIn = () => {
     mode: "all",
   });
 
+  const isEmail = data => {
+    console.log(errors);
+    return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(data);
+  };
+
   return (
     <div className="container">
       <div className={Styles.signin}>
@@ -32,12 +37,12 @@ const SignIn = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className={Styles.signin__content}>
               <label className={Styles.signin__label}>
-                Пароль
+                Логін
                 <div className={Styles.input__list}>
                   <input
                     type="password"
                     className={Styles.signin__input}
-                    {...register("password", {
+                    {...register("login", {
                       required: "Обовязкове поле",
                       minLength: {
                         value: 3,
@@ -45,7 +50,26 @@ const SignIn = () => {
                       },
                     })}
                   />
-                  <div className={Styles.signin__error}>{errors?.password && <p>{errors?.password?.message}</p>}</div>
+                  <div className={Styles.signin__error}>{errors?.login && <p>{errors?.login?.message}</p>}</div>
+                </div>
+              </label>
+              <label className={Styles.signin__label}>
+                Email
+                <div className={Styles.input__list}>
+                  <input
+                    type="emailss"
+                    className={Styles.signin__input}
+                    {...register("emails", {
+                      required: "Обовязкове поле",
+                      // validate: { value: isEmail, m },
+                      pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: "Email не правильне" },
+                      minLength: {
+                        value: 3,
+                        message: "мінімум 3 символи",
+                      },
+                    })}
+                  />
+                  <div className={Styles.signin__error}>{errors?.emails && <p>{errors?.emails?.message}</p>}</div>
                 </div>
               </label>
               <label className={Styles.signin__label}>
@@ -66,29 +90,12 @@ const SignIn = () => {
                 </div>
               </label>
               <label className={Styles.signin__label}>
-                Пароль
-                <div className={Styles.input__list}>
-                  <input
-                    type="password"
-                    className={Styles.signin__input}
-                    {...register("password", {
-                      required: "Обовязкове поле",
-                      minLength: {
-                        value: 3,
-                        message: "мінімум 3 символи",
-                      },
-                    })}
-                  />
-                  <div className={Styles.signin__error}>{errors?.password && <p>{errors?.password?.message}</p>}</div>
-                </div>
-              </label>
-              <label className={Styles.signin__label}>
-                Пароль
+                Повторити пароль
                 <div className={Styles.signin__input_list}>
                   <input
-                    type="password"
+                    type="morePassword"
                     className={Styles.signin__input}
-                    {...register("password", {
+                    {...register("morePassword", {
                       required: "Обовязкове поле",
                       minLength: {
                         value: 3,
@@ -96,7 +103,7 @@ const SignIn = () => {
                       },
                     })}
                   />
-                  <div className={Styles.signin__error}>{errors?.password && <p>{errors?.password?.message}</p>}</div>
+                  <div className={Styles.signin__error}>{errors?.morePassword && <p>{errors?.morePassword?.message}</p>}</div>
                 </div>
               </label>
             </div>
