@@ -23,11 +23,6 @@ const SignIn = () => {
     mode: "all",
   });
 
-  const isEmail = data => {
-    console.log(errors);
-    return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(data);
-  };
-
   return (
     <div className="container">
       <div className={Styles.signin}>
@@ -63,10 +58,6 @@ const SignIn = () => {
                       required: "Обовязкове поле",
                       // validate: { value: isEmail, m },
                       pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: "Email не правильне" },
-                      minLength: {
-                        value: 3,
-                        message: "мінімум 3 символи",
-                      },
                     })}
                   />
                   <div className={Styles.signin__error}>{errors?.emails && <p>{errors?.emails?.message}</p>}</div>
