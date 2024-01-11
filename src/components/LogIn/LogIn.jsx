@@ -12,8 +12,6 @@ import Styles from "./LogIn.module.scss";
 import translations from "./translation.js";
 
 const LogIn = () => {
-  const [loginTranslate, setLoginTranslate] = useState("");
-
   const {
     register,
     formState: { errors, isValid },
@@ -31,12 +29,6 @@ const LogIn = () => {
   Object.keys(translations).forEach(lng => {
     i18n.addResourceBundle(lng, "LogIn", translations[lng]);
   });
-
-  useEffect(() => {
-    setLoginTranslate(translations[i18n.language].login.error.required);
-    console.log(translations[i18n.language].login.error.required);
-    console.log(loginTranslate);
-  }, [i18n.language]);
 
   //TODO: Зделать чтоб пароль можно было смотреть
   return (
@@ -66,10 +58,10 @@ const LogIn = () => {
                 type="password"
                 className={Styles.LogIn__input}
                 {...register("password", {
-                  required: loginTranslate,
+                  required: t("LogIn:login.error.required"),
                   minLength: {
                     value: 3,
-                    message: translations[i18n.language].login.error.minLength,
+                    message: t("LogIn:login.error.minLength"),
                   },
                 })}
               />
