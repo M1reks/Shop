@@ -10,6 +10,7 @@ import Citi from "../../assets/Rectangle 9.svg?react";
 
 import Styles from "./LogIn.module.scss";
 import translations from "./translation.js";
+import translation from "./translation.js";
 
 const LogIn = () => {
   const {
@@ -29,6 +30,8 @@ const LogIn = () => {
   Object.keys(translations).forEach(lng => {
     i18n.addResourceBundle(lng, "LogIn", translations[lng]);
   });
+
+  console.log(errors?.login?.type === "required" ? "12" : "error");
 
   //TODO: Зделать чтоб пароль можно было смотреть
   return (
@@ -50,7 +53,13 @@ const LogIn = () => {
                   },
                 })}
               />
-              <div className={Styles.LogIn__error}>{errors?.login && <p>{errors?.login?.message || "Error"}</p>}</div>
+              <div className={Styles.LogIn__error}>
+                {errors?.login?.type === "required"
+                  ? translation[i18n.language].login.error.required
+                  : errors?.login?.type === "minLength"
+                    ? translation[i18n.language].login.error.minLength
+                    : null}
+              </div>
             </label>
             <label className={Styles.LogIn__label}>
               {t("LogIn:password.header")}
@@ -58,14 +67,20 @@ const LogIn = () => {
                 type="password"
                 className={Styles.LogIn__input}
                 {...register("password", {
-                  required: t("LogIn:login.error.required"),
+                  required: translation[i18n.language].login.error.required,
                   minLength: {
                     value: 3,
-                    message: t("LogIn:login.error.minLength"),
+                    message: translation[i18n.language].login.error.minLength,
                   },
                 })}
               />
-              <div className={Styles.LogIn__error}>{errors?.password && <p>{errors?.password?.message}</p>}</div>
+              <div className={Styles.LogIn__error}>
+                {errors?.password?.type === "required"
+                  ? translation[i18n.language].login.error.required
+                  : errors?.password?.type === "minLength"
+                    ? translation[i18n.language].login.error.minLength
+                    : null}
+              </div>
             </label>
             <button className={Styles.login__button} disabled={!isValid}>
               {t("LogIn:button")}
