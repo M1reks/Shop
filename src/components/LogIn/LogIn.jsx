@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
+
+import { useTranslation } from "react-i18next";
+
+import { Link } from "react-router-dom";
 
 import Citi from "../../assets/Rectangle 9.svg?react";
 
 import Styles from "./LogIn.module.scss";
+import translations from "./translation.js";
 
 const LogIn = () => {
   const {
@@ -16,15 +21,14 @@ const LogIn = () => {
     mode: "all",
   });
 
-  const onSubmit = data => {
-    console.log(JSON.stringify(data));
+  const onSubmit = () => {
     reset();
   };
 
-  // const isEmail = data => {
-  //   console.log(errors);
-  //   return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(data);
-  // };
+  const { t, i18n } = useTranslation();
+  Object.keys(translations).forEach(lng => {
+    i18n.addResourceBundle(lng, "LogIn", translations[lng]);
+  });
 
   //TODO: Зделать чтоб пароль можно было смотреть
   return (
@@ -32,15 +36,14 @@ const LogIn = () => {
       <div className={Styles.LogIn}>
         <Citi className={Styles.LogIn__image} />
         <div className={Styles.LogIn__form}>
-          <h1 className={Styles.LogIn__header}>Авторизація</h1>
+          <h1 className={Styles.LogIn__header}>{t("LogIn:header")}</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
             <label className={Styles.LogIn__label}>
-              Логін
+              {t("LogIn:login.header")}
               <input
                 className={Styles.LogIn__input}
                 {...register("login", {
                   required: "Обовязкове поле",
-
                   minLength: {
                     value: 3,
                     message: "мінімум 3 символи",
@@ -50,27 +53,29 @@ const LogIn = () => {
               <div className={Styles.LogIn__error}>{errors?.login && <p>{errors?.login?.message || "Error"}</p>}</div>
             </label>
             <label className={Styles.LogIn__label}>
-              Пароль
+              {t("LogIn:password.header")}
               <input
                 type="password"
                 className={Styles.LogIn__input}
                 {...register("password", {
-                  required: "Обовязкове поле",
+                  required: t("LogIn:login.error.required"),
                   minLength: {
                     value: 3,
-                    message: "мінімум 3 символи",
+                    message: t("LogIn:login.error.minLength"),
                   },
                 })}
               />
               <div className={Styles.LogIn__error}>{errors?.password && <p>{errors?.password?.message}</p>}</div>
             </label>
             <button className={Styles.login__button} disabled={!isValid}>
-              Авторизуватися
+              {t("LogIn:button")}
             </button>
           </form>
           <div className={Styles.login__recovery}>
-            <p>Я забув свій пароль</p>
-            <p>У мене немає акаунту</p>
+            <Link to="/LogIn" className={Styles.login__link}>
+              {t("LogIn:recovery.user")}
+            </Link>
+            <p>{t("LogIn:recovery.password")}</p>
           </div>
         </div>
       </div>

@@ -1,0 +1,27 @@
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.label__input {
+  padding: 20px 28px;
+  align-items: center;
+  font-size: 20px;
+  border-radius: 12px;
+  background: #E6E9EB;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.label__list {
+  height: 80px;
+}
+
+.label__error {
+  p {
+    color: red;
+    font-size: 12px;
+  }
+}
+

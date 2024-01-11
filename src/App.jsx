@@ -6,11 +6,12 @@ import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 
 import { RoutesData } from "./app/RoutesData.js";
+import Loader from "./components/UI/Loader/Loader.jsx";
 
 function App() {
   return (
     <div className="App">
-      <Suspense fallback={<div>Loading</div>}>
+      <Suspense fallback={<Loader />}>
         <Header />
         <Routes>
           {RoutesData.map(route => (
