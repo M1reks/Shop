@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useTranslation } from "react-i18next";
 
 import translations from "../../translations.js";
 
 import Vector from "../../../../assets/Vector 5.svg?react";
+
+import DropDownMenu from "../DropDownMenu/DropDownMenu.jsx";
 
 import styles from "./HeaderNavigation.module.scss";
 
@@ -25,6 +27,7 @@ const HeaderPerson = () => {
         <div className={styles.header__search_categoryitem}>
           <p>{t("header:category")}</p>
           <Vector />
+          <DropDownMenu />
         </div>
         <p>{t("header:сontacts")}</p>
         <p>{t("header:сallphone")}</p>

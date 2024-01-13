@@ -1,0 +1,16 @@
+.dropDown {
+  background-color: #fff; ;
+  position: absolute;
+  top: 12%;
+  display: flex;
+  gap: 200px;
+  padding: 20px 30px;
+}
+
+.active {
+  display: block;
+}
+
+.def {
+  display: none;
+}
