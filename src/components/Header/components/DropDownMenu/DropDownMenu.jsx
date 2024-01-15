@@ -8,22 +8,16 @@ const DropDownMenu = () => {
   const catalogDB = ["Ноутбуки", "Комп'ютери", "Комплентуючі"];
   const contentDB = ["Lorem ipsum dolor sit amet, consectet", "Lorem ipsum dolor sit amet, consectet", "Комплентуючі"];
 
-  const toggleTab = index => {
-    setTabIndex(index);
-  };
-
   return (
     <div className={Styles.dropDown}>
-      <ul className={Styles.dropDown__list}>
+      <div className={Styles.dropDown__list}>
         {catalogDB.map((item, i) => {
           return (
             // eslint-disable-next-line react/jsx-key
-            <li onClick={() => toggleTab(i)} className={Styles.dropDown__list}>
-              {item}
-            </li>
+            <button className={Styles.dropDown__list}>{item}</button>
           );
         })}
-      </ul>
+      </div>
       <div className={Styles.dropDown__content}>
         {contentDB.map((item, i) => {
           // eslint-disable-next-line react/jsx-key
