@@ -17,7 +17,6 @@ const HeaderPerson = () => {
   Object.keys(translations).forEach(lng => {
     i18n.addResourceBundle(lng, "header", translations[lng]);
   });
-  console.log(showDropMenu);
   return (
     <div className={styles.header__search}>
       <div className={styles.header__search_logo}>

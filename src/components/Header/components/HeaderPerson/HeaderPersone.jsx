@@ -23,7 +23,7 @@ const HeaderPerson = () => {
 
   const [valueInput, setValueInput] = useState("");
 
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const lng = localStorage.getItem("lng");
 
