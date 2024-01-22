@@ -3,11 +3,13 @@ import { initReactI18next } from "react-i18next";
 
 import translations from "./components/Header/translations";
 
-const lng = localStorage.getItem("lng");
+const saveLng = localStorage.getItem("lng");
 
+//todo: Языки без localStorage
 i18n.use(initReactI18next).init({
   resources: translations,
-  lng: lng.toLowerCase(),
+  lng: saveLng?.toLowerCase() || "ru",
+  supportedLngs: ["ua", "ru", "en"],
   interpolation: {
     escapeValue: false,
   },

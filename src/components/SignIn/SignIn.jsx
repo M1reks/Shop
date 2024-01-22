@@ -1,19 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useForm } from "react-hook-form";
+
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import Citi from "../../assets/Rectangle 9.svg?react";
 
 import Button from "../UI/button/button.jsx";
 
+import { auth } from "../../firebase.js";
+
 import Styles from "./SignIn.module.scss";
 
 const SignIn = () => {
-  const onSubmit = data => {
-    console.log(JSON.stringify(data));
-    reset();
-  };
+  const [errorMessage, setErrorMessage] = useState("");
 
+  const onSubmit = data => {
+    const { emails, password, morePassword } = data;
+    if (password === morePassword) {
+      setErrorMessage("");
+      createUserWithEmailAndPassword(auth, emails, password)
+        .then(user => {
+          console.log(user);
+          reset();
+        })
+        .catch(data => {
+          setErrorMessage(data.message);
+        });
+    } else {
+      setErrorMessage("Invalid password");
+    }
+  };
+  console.log(errorMessage);
   const {
     register,
     formState: { errors, isValid },
@@ -35,7 +53,7 @@ const SignIn = () => {
                 Логін
                 <div className={Styles.input__list}>
                   <input
-                    type="password"
+                    type="text"
                     className={Styles.signin__input}
                     {...register("login", {
                       required: "Обовязкове поле",
@@ -72,8 +90,8 @@ const SignIn = () => {
                     {...register("password", {
                       required: "Обовязкове поле",
                       minLength: {
-                        value: 3,
-                        message: "мінімум 3 символи",
+                        value: 6,
+                        message: "мінімум 6 символи",
                       },
                     })}
                   />
@@ -84,13 +102,13 @@ const SignIn = () => {
                 Повторити пароль
                 <div className={Styles.signin__input_list}>
                   <input
-                    type="morePassword"
+                    type="password"
                     className={Styles.signin__input}
                     {...register("morePassword", {
                       required: "Обовязкове поле",
                       minLength: {
-                        value: 3,
-                        message: "мінімум 3 символи",
+                        value: 6,
+                        message: "мінімум 6 символи",
                       },
                     })}
                   />
@@ -98,6 +116,7 @@ const SignIn = () => {
                 </div>
               </label>
             </div>
+            {errorMessage}
             <Button buttonText="Зараєструватися" disabled={!isValid} />
           </form>
           <div className={Styles.signin__recovery}>

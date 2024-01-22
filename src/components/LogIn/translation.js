@@ -2,7 +2,7 @@ const translations = {
   ua: {
     header: "Авторизація",
     login: {
-      header: "Логін",
+      header: "Email",
       error: {
         required: "Обовязкове поле",
         minLength: "Мінімум 3 символи",
@@ -24,7 +24,7 @@ const translations = {
   en: {
     header: "Authorization",
     login: {
-      header: "Login",
+      header: "Email",
       error: {
         required: "Required field",
         minLength: "Minimum 3 characters",
@@ -46,7 +46,7 @@ const translations = {
   ru: {
     header: "Авторизация",
     login: {
-      header: "Логин",
+      header: "Email",
       error: {
         required: "Обязательное поле",
         minLength: "Минимум 3 символа",
