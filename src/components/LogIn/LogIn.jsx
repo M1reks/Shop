@@ -6,7 +6,10 @@ import { useTranslation } from "react-i18next";
 
 import { Link } from "react-router-dom";
 
+import { signInWithEmailAndPassword } from "firebase/auth";
+
 import Citi from "../../assets/Rectangle 9.svg?react";
+import { auth } from "../../firebase";
 
 import Styles from "./LogIn.module.scss";
 import translations from "./translation.js";
@@ -22,16 +25,18 @@ const LogIn = () => {
     mode: "all",
   });
 
-  const onSubmit = () => {
-    reset();
+  const onSubmit = data => {
+    const { login, password } = data;
+    signInWithEmailAndPassword(auth, login, password).then(data => {
+      console.log(data);
+      reset();
+    });
   };
 
   const { t, i18n } = useTranslation();
   Object.keys(translations).forEach(lng => {
     i18n.addResourceBundle(lng, "LogIn", translations[lng]);
   });
-
-  console.log(errors?.login?.type === "required" ? "12" : "error");
 
   //TODO: Зделать чтоб пароль можно было смотреть
   return (
@@ -57,7 +62,7 @@ const LogIn = () => {
                 {errors?.login?.type === "required"
                   ? translation[i18n.language].login.error.required
                   : errors?.login?.type === "minLength"
-                    ? translation[i18n.language].login.error.minLength
+                    ? translation[i18n.language]?.login.error.minLength
                     : null}
               </div>
             </label>
@@ -67,18 +72,18 @@ const LogIn = () => {
                 type="password"
                 className={Styles.LogIn__input}
                 {...register("password", {
-                  required: translation[i18n.language].login.error.required,
+                  required: translation[i18n.language]?.login.error.required,
                   minLength: {
                     value: 3,
-                    message: translation[i18n.language].login.error.minLength,
+                    message: translation[i18n.language]?.login.error.minLength,
                   },
                 })}
               />
               <div className={Styles.LogIn__error}>
                 {errors?.password?.type === "required"
-                  ? translation[i18n.language].login.error.required
+                  ? translation[i18n.language]?.login.error.required
                   : errors?.password?.type === "minLength"
-                    ? translation[i18n.language].login.error.minLength
+                    ? translation[i18n.language]?.login.error.minLength
                     : null}
               </div>
             </label>

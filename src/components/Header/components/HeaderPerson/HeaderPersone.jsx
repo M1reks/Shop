@@ -16,15 +16,15 @@ import styles from "./HeaderPersone.module.scss";
 
 const HeaderPerson = () => {
   const options = [
-    { value: "Ukraine", label: "UA" },
-    { value: "Russian", label: "RU" },
-    { value: "USA", label: "EN" },
+    { value: "Ukraine", label: "ua" },
+    { value: "Russian", label: "ru" },
+    { value: "USA", label: "en" },
   ];
 
   const [valueInput, setValueInput] = useState("");
 
   const { i18n } = useTranslation();
-
+  // const supportedLngs = i18n.options.supportedLngs.filter(option => option !== "cimode");
   const lng = localStorage.getItem("lng");
 
   return (
@@ -33,7 +33,7 @@ const HeaderPerson = () => {
         <input
           value={valueInput}
           onChange={e => setValueInput(e.target.value)}
-          placeholder={translations[i18n.language].search}
+          placeholder={translations[i18n.language]?.search}
           className={styles.header__input_text}
           type="text"
           name=""
