@@ -1,0 +1,47 @@
+.catalog__list {
+  display: flex;
+  gap: 12px;
+}
+
+.prise__dicoration {
+  text-decoration: line-through;
+  color: #1F1F33;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.prise__dicoration_none, .prise__new {
+  color: #1F1F33;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+
+
+.catalog__item {
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 24px;
+}
+
+.catalog__content {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 12px;
+  max-width: 240px;
+}
+
+.catalog__title {
+  color: #1F1F33;
+  font-size: 16px;
+
+}
+
+.catalog__all_prise {
+  display: flex;
+  justify-content: space-between;
+}
+
+
