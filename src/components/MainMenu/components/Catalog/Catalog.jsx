@@ -53,11 +53,11 @@ const Catalog = () => {
             <div className={Styles.catalog__content}>
               <h2 className={Styles.catalog__title}>{item.title}</h2>
               <div className={Styles.catalog__all_prise}>
-                <div>
+                <div className={Styles.prise__all}>
                   <p className={item.prise.newPrice ? Styles.prise__dicoration : Styles.prise__dicoration_none}>{item.prise.meinPrice}</p>
                   <p className={Styles.prise__new}>{item.prise.newPrice}</p>
                 </div>
-                <button>
+                <button className={Styles.catalog__button}>
                   <Basket />
                 </button>
               </div>
