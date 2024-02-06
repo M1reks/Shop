@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 import Card from "../../../../assets/CardImage8.svg?react";
 import Basket from "../../../../assets/shopping-cart.svg?react";
 

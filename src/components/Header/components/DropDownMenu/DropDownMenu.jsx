@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import PC from "../../../../assets/pngimg.com - computer_pc_PNG102104.svg?react";
 import Laptop from "../../../../assets/screen-1515324_960_720.svg?react";
@@ -34,7 +34,6 @@ const DropDownMenu = () => {
         { title: "Процесори", modifications: ["Intel", "AMD"] },
         { title: "Материнські плати", modifications: ["Intel", "AMD"] },
         { title: "Відеокарти", modifications: ["NVIDIA (GeForce)", "AMD (Radeon)"] },
-        { title: "Оперативна пам'ять", modifications: ["DDR5", "DDR4", "DDR3", " DDR2"] },
         { title: "Оперативна пам'ять", modifications: ["DDR5", "DDR4", "DDR3", " DDR2"] },
         { title: "Оперативна пам'ять", modifications: ["DDR5", "DDR4", "DDR3", " DDR2"] },
         { title: "Оперативна пам'ять", modifications: ["DDR5", "DDR4", "DDR3", " DDR2"] },
@@ -84,7 +83,6 @@ const DropDownMenu = () => {
             // eslint-disable-next-line react/jsx-key
             <div className={tabIndex === i ? Styles.active : Styles.def}>
               {item.description.map(item => {
-                // eslint-disable-next-line react/jsx-key
                 return (
                   // eslint-disable-next-line react/jsx-key
                   <div className={Styles.dropDown__description}>

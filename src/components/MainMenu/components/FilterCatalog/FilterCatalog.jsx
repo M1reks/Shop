@@ -1,6 +1,4 @@
-import React from "react";
-
-import Styles from "./FilterCatalog.module.scss";
+import "rc-slider/assets/index.css";
 
 const FilterCatalog = () => {
   return <div></div>;
