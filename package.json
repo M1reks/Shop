@@ -12,6 +12,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.1.0",
     "firebase": "^10.7.1",
     "framer-motion": "^11.0.3",
     "i18next": "^23.7.17",
@@ -24,7 +25,7 @@
     "redux": "^5.0.1"
   },
   "devDependencies": {
-    "@types/react": "^18.2.43",
+    "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.55.0",
@@ -39,6 +40,7 @@
     "react-hook-form": "^7.49.2",
     "react-i18next": "^14.0.1",
     "sass": "^1.69.6",
+    "typescript": "^5.3.3",
     "vite": "^5.0.8",
     "vite-plugin-svgr": "^4.2.0"
   }
