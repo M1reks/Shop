@@ -1,5 +1,3 @@
-import React from "react";
-
 import LogIn from "../../components/LogIn/LogIn.jsx";
 
 const LogInPage = () => {

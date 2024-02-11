@@ -1,5 +1,3 @@
-import React from "react";
-
 import Styles from "./Input.module.scss";
 
 // eslint-disable-next-line react/prop-types

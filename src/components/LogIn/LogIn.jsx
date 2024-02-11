@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-
 import { useForm } from "react-hook-form";
 
 import { useTranslation } from "react-i18next";
@@ -27,8 +25,7 @@ const LogIn = () => {
 
   const onSubmit = data => {
     const { login, password } = data;
-    signInWithEmailAndPassword(auth, login, password).then(data => {
-      console.log(data);
+    signInWithEmailAndPassword(auth, login, password).then(() => {
       reset();
     });
   };

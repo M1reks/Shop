@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { useForm } from "react-hook-form";
 
@@ -20,8 +20,7 @@ const SignIn = () => {
     if (password === morePassword) {
       setErrorMessage("");
       createUserWithEmailAndPassword(auth, emails, password)
-        .then(user => {
-          console.log(user);
+        .then(() => {
           reset();
         })
         .catch(data => {
@@ -31,7 +30,6 @@ const SignIn = () => {
       setErrorMessage("Invalid password");
     }
   };
-  console.log(errorMessage);
   const {
     register,
     formState: { errors, isValid },
