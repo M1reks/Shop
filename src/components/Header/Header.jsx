@@ -1,5 +1,3 @@
-import React from "react";
-
 import Styles from "./Header.module.scss";
 import HeaderNavigation from "./components/HeaderNavigation/HeaderNavigation.jsx";
 import HeaderPerson from "./components/HeaderPerson/HeaderPersone.jsx";
